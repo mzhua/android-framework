@@ -22,8 +22,8 @@ public class ImageProvider {
         activity.startActivityForResult(intent, requestCode);
     }
 
-    public static String takeAPicture(Activity activity, int requestCode) {
-        String tmp = Environment.getExternalStorageDirectory().getPath() + File.pathSeparator + activity.getApplicationInfo().packageName+ Calendar.getInstance().getTimeInMillis() + ".png";
+    public static String takePicture(Activity activity, int requestCode) {
+        String tmp = Environment.getExternalStorageDirectory().getPath() + File.separator + activity.getApplicationInfo().packageName+ Calendar.getInstance().getTimeInMillis() + ".png";
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new File(tmp)));
         activity.startActivityForResult(intent,requestCode);

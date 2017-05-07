@@ -9,7 +9,6 @@ import android.os.Environment;
 import android.provider.MediaStore;
 
 import java.io.File;
-import java.util.Calendar;
 
 /**
  * Created by hua on 2017/5/7.
@@ -23,7 +22,7 @@ public class ImageProvider {
     }
 
     public static String takePicture(Activity activity, int requestCode) {
-        String tmp = Environment.getExternalStorageDirectory().getPath() + File.separator + activity.getApplicationInfo().packageName+ Calendar.getInstance().getTimeInMillis() + ".png";
+        String tmp = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getPath() + File.separator + activity.getApplicationInfo().packageName + "tmp.png";
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new File(tmp)));
         activity.startActivityForResult(intent,requestCode);
